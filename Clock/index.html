@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="app.js"></script>
+    <style>
+        body {
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            min-width: 360px;
+        }
+        /* checkbox */
+        
+        #date {
+            text-align: center;
+        }
+        
+        #time {
+            text-align: center;
+            font-size: 50px;
+        }
+        
+        #format-container-container {
+            width: 80%;
+            max-width: 370px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        #format-container {
+            text-align: center;
+        }
+        
+        #format-container2 {
+            text-align: center
+        }
+        
+        #timeformat-switch-container,
+        #dateformat-switch-container {
+            float: left;
+            width: 100px;
+        }
+        
+        #monthformat-switch-container,
+        #secondsformat-switch-container {
+            margin: 0 auto;
+            display: inline-block;
+            width: 100px;
+        }
+        
+        #dayformat-switch-container,
+        #millisecondsformat-switch-container {
+            float: right;
+            width: 100px;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .5s;
+            transition: .5s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .5s;
+            transition: .5s;
+        }
+        
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+        
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+        
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+        /* Rounded sliders */
+        
+        .slider.round {
+            border-radius: 34px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body onload="main()">
+    <p id="date"></p>
+    <p id="time"></p>
+    <br>
+    <div id="format-container-container">
+        <div id="format-container">
+            <div id="dateformat-switch-container">
+                <p id="dateformat">Long Date</p>
+                <label class="switch">
+        <input type="checkbox" id="dateformat-checkbox">
+        <span class="slider round"></span>
+    </label>
+            </div>
+            <div id="monthformat-switch-container">
+                <p id="monthformat">Full Month</p>
+                <label class="switch">
+        <input type="checkbox" id="monthformat-checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+            </div>
+            <div id="dayformat-switch-container">
+                <p id="dayformat">Full Day</p>
+                <label class="switch">
+        <input type="checkbox" id="dayformat-checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+            </div>
+        </div>
+        <div id="format-container">
+            <div id="timeformat-switch-container">
+                <p id="timeformat">24 hour</p>
+                <label class="switch">
+            <input type="checkbox" id="timeformat-checkbox" checked>
+            <span class="slider round"></span>
+        </label>
+            </div>
+            <div id="secondsformat-switch-container">
+                <p id="secondsformat">Seconds</p>
+                <label class="switch">
+        <input type="checkbox" id="secondsformat-checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+            </div>
+            <div id="millisecondsformat-switch-container">
+                <p id="millisecondsformat">Milliseconds</p>
+                <label class="switch">
+        <input type="checkbox" id="millisecondsformat-checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+            </div>
+        </div>
+</body>
+
+</html>
